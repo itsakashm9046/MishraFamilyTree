@@ -105,7 +105,63 @@
 
     <!-- Land Details Section -->
     <div id="details"></div>
-    
+    <script>
+
+        const egazetteRecords = [
+            {
+                department: "Ministry of Road Transport and Highways",
+                gazette_no: "4016",
+                code:"CG-DL-E-13092025-266141",
+                release_date: "2025-09-11",
+                publish_date: "2025-09-23",
+                file: "images/gazette1.pdf"
+            },
+            {
+                department: "Ministry of Road Transport and Highways",
+                gazette_no: "1828",
+                code:"CG-DL-E-15042026-271829",
+                release_date: "2026-04-13",
+                publish_date: "2026-04-15",
+                file: "images/gazette2.pdf"
+            }
+        ];
+
+        function showEGazette() {
+            let detailsBox = document.getElementById("details");
+
+            let html = `<h2>e-Gazette Records</h2>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Department</th>
+            <th>Gazette No.</th>
+            <th>Code</th>
+            <th>Release Date</th>
+            <th>Publish Date</th>
+            <th>Download</th>
+        </tr>`;
+
+            egazetteRecords.forEach((rec, index) => {
+                html += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${rec.department}</td>
+            <td>${rec.gazette_no}</td>
+            <td>${rec.code}</td>
+            <td>${rec.release_date}</td>
+            <td>${rec.publish_date}</td>
+            <td><a href="${rec.file}" target="_blank">Download</a></td>
+        </tr>`;
+            });
+
+            html += `</table>`;
+
+            detailsBox.innerHTML = html;
+            detailsBox.style.display = "block";
+        }
+
+
+    </script>
     <script>
         function showDetails(name) {
             let detailsBox = document.getElementById("details");
@@ -187,7 +243,9 @@
          <tr><b>District:</b>  Jaunpur (जौनपुर)  </tr>
         <tr><b>Tehsil:</b>  Jaunpur  (सदर) </tr>
        <tr><b>Village:</b>  Sungulpur (सुंगुलपुर)-201753 <span class="text-muted small">(रारी)</span></tr>
-    </ul>
+    </table>
+
+    <br><button onclick="showEGazette()">View e-Gazette Records</button>
 </div>  
         `;
             }
