@@ -196,7 +196,11 @@
     </div>
     <script>
 
-        const correctPassword = "Mishra#@1947"; // 🔑 Change password here
+        const encodedPassword = "TWlzaHJhI0AxOTQ3";
+
+        function getPassword() {
+            return atob(encodedPassword); // decode at runtime
+        }
 
         // function openPopup() {
         //     document.getElementById("passwordPopup").style.display = "block";
@@ -214,14 +218,15 @@
             document.getElementById("passwordPopup").style.display = "none";
         }
 
-        function checkPassword() {
+        f function checkPassword() {
             let val = document.getElementById("mapPassword").value;
 
-            if (val === correctPassword) {
+            if (val === getPassword()) {
                 closePassword();
                 openMap();
             } else {
-                document.getElementById("errorMsg").innerText = "Authentication failed. Please re-enter details.";
+                document.getElementById("errorMsg").innerText =
+                    "Authentication failed. Please re-enter details.";
             }
         }
 
