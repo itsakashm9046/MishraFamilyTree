@@ -167,7 +167,7 @@
     <div id="passwordPopup" class="popup">
         <div class="popup-content">
             <h3>Enter Password</h3>
-            <input type="password" id="mapPassword" placeholder="Enter password">
+            <input type="password" id="mapPassword" placeholder="Enter your password to access the file...">
             <br>
             <button onclick="checkPassword()">Submit</button>
             <button onclick="closePassword()">Cancel</button>
@@ -221,8 +221,17 @@
                 closePassword();
                 openMap();
             } else {
-                document.getElementById("errorMsg").innerText = "Wrong Password!";
+                document.getElementById("errorMsg").innerText = "Authentication failed. Please re-enter details.";
             }
+        }
+
+        /* Map Popup */
+        function openMap() {
+            document.getElementById("mapPopup").style.display = "block";
+        }
+
+        function closeMap() {
+            document.getElementById("mapPopup").style.display = "none";
         }
 
 
@@ -369,7 +378,7 @@
             <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
         </table>
 
-          <button onclick="openPassword()">View Chakbandi Maps</button>
+          <button onclick="openPassword()">View Maps</button>
         
         <div style="margin-top:20px; padding:15px; background:#eef6ff; border-left:5px solid #2196f3;">
     <p>
