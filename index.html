@@ -250,9 +250,7 @@
             <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
         </table>
 
-       <h3 onclick="openMapPopup()" style="cursor:pointer; color:blue;">
-    Chakbandi Map Comparison (Click to View)
-</h3>
+      <h3>Chakbandi Map Comparison</h3>
 
 <div class="map-container" id="mapSection" style="display:none;">
 <div id="mapPopup" style="
@@ -385,27 +383,6 @@
 
             detailsBox.style.display = "block";
         }
-    </script>
-
-    <script>
-
-
-        const mapPassword = "Mishra#@1947"; // Change password here
-
-function openMapPopup() {
-    document.getElementById("mapPopup").style.display = "flex";
-}
-
-function checkMapPassword() {
-    let entered = document.getElementById("mapPassword").value;
-
-    if (entered === mapPassword) {
-        document.getElementById("mapSection").style.display = "flex";
-        document.getElementById("mapPopup").style.display = "none";
-    } else {
-        alert("Incorrect Password!");
-    }
-}
     </script>
 
 
