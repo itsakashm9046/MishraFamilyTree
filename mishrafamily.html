@@ -210,14 +210,14 @@
         //     document.getElementById("passwordPopup").style.display = "none";
         // }
 
-        function openPassword() {
+        window.openPassword = function () {
             document.getElementById("passwordPopup").style.display = "block";
-        }
+        };
 
-        function closePassword() {
+        window.closePassword = function () {
             document.getElementById("passwordPopup").style.display = "none";
-        }
-
+        };
+        
          function checkPassword() {
             let val = document.getElementById("mapPassword").value;
 
@@ -231,13 +231,13 @@
         }
 
         /* Map Popup */
-        function openMap() {
-            document.getElementById("mapPopup").style.display = "block";
-        }
+        window.openMap = function () {
+    document.getElementById("mapPopup").style.display = "block";
+};
 
-        function closeMap() {
-            document.getElementById("mapPopup").style.display = "none";
-        }
+window.closeMap = function () {
+    document.getElementById("mapPopup").style.display = "none";
+};
 
 
         function showMaps() {
