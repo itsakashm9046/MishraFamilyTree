@@ -32,6 +32,25 @@
             font-weight: bold;
         }
 
+        .map-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .map-box {
+            text-align: center;
+        }
+
+        .map-box img {
+            width: 350px;
+            height: auto;
+            border: 2px solid #444;
+            border-radius: 8px;
+        }
+
         #details {
             margin-top: 30px;
             padding: 20px;
@@ -111,7 +130,7 @@
             {
                 department: "Ministry of Road Transport and Highways",
                 gazette_no: "4016",
-                code:"CG-DL-E-13092025-266141",
+                code: "CG-DL-E-13092025-266141",
                 release_date: "2025-09-11",
                 publish_date: "2025-09-23",
                 file: "images/gazette1.pdf"
@@ -119,7 +138,7 @@
             {
                 department: "Ministry of Road Transport and Highways",
                 gazette_no: "1828",
-                code:"CG-DL-E-15042026-271829",
+                code: "CG-DL-E-15042026-271829",
                 release_date: "2026-04-13",
                 publish_date: "2026-04-15",
                 file: "images/gazette2.pdf"
@@ -230,6 +249,24 @@
             <tr><td>2</td><td>894</td><td>2017530894000012</td><td>Individual</td><td>Not Known</td><td>0.2300</td></tr>
             <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
         </table>
+
+        <h3>Chakbandi Map Comparison</h3>
+
+        <div class="map-container">
+            <div class="map-box">
+                <h4>1962 Chakbandi</h4>
+                <a href="images/map1962.jpg" download="Chakbandi_1962_Map">
+                <img src="images/map1962.jpg" alt="1962 Chakbandi Map">
+                </a>
+            </div>
+
+            <div class="map-box">
+                <h4>2018 Chakbandi</h4>
+                <a href="images/map2018.jpg" download="Chakbandi_2018_Map">
+                <img src="images/map2018.jpg" alt="2018 Chakbandi Map">
+                </a>
+            </div>
+        </div>
         
         <div style="margin-top:20px; padding:15px; background:#eef6ff; border-left:5px solid #2196f3;">
     <p>
@@ -255,6 +292,16 @@
         <h2>Vijay Kumar Mishra</h2>
         <p>Family head of Anil Kumar Mishra, Varun Kumar Mishra & Vivek Kumar Mishra</p>
         <p>Khasra No.: 851, 892, 1157</p>
+        
+        <h4>Individual Land Distribution of Vijay Kumar Mishra</h4>
+        <table>
+            <tr><th>S.No</th><th>Khasra No.</th><th>Unique Code</th><th>Property Type</th><th>Actual Place</th><th>Total Area (Hectare)</th></tr>
+            <tr><td>1</td><td>851</td><td>2017530851000012</td><td>Individual</td><td>Not Known</td><td>0.5260</td></tr>
+            <tr><td>2</td><td>892</td><td>2017530892000012</td><td>Individual</td><td>Not Known</td><td>0.2300</td></tr>
+            <tr><td>3</td><td>1157</td><td>2017531157000012</td><td>Individual</td><td>Not Known</td><td>0.1210</td></tr>
+        </table>
+
+        
         `;
             }
 
@@ -263,6 +310,15 @@
         <h2>Lt. Shrawan Kumar Mishra</h2>
         <p>Family head of Ashok Kumar Mishra & Santosh Kumar Mishra</p>
         <p>Khasra No. 860, 864, 895, and 1158 are now registered in the names of his sons, Ashok Kumar Mishra and Santosh Kumar Mishra.</p>
+        
+        <h4>Individual Land Distribution of Ashok Kumar Mishra & Santosh Kumar Mishra</h4>
+        <table>
+            <tr><th>S.No</th><th>Khasra No.</th><th>Unique Code</th><th>Property Type</th><th>Actual Place</th><th>Total Area (Hectare)</th></tr>
+            <tr><td>1</td><td>860</td><td>2017530860000012</td><td>Individual</td><td>Ghar Par</td><td>0.2570</td></tr>
+            <tr><td>2</td><td>864</td><td>2017530864000012</td><td>Individual</td><td>Ghar Ke Piche</td><td>0.0270</td></tr>
+            <tr><td>3</td><td>895</td><td>2017530895000012</td><td>Individual</td><td>Chaukhadva</td><td>0.2290</td></tr>
+            <tr><td>4</td><td>1158</td><td>2017531158000012</td><td>Individual</td><td>Bhaggu Ke Aam</td><td>0.1710</td></tr>
+        </table>
         `;
             }
 
@@ -271,6 +327,14 @@
         <h2>Raj Kumar Mishra</h2>
         <p>Family head of Anand Mishra & Ashish Mishra</p>
         <p>Khasra No.: 835, 896, 1159</p>
+
+        <h4>Individual Land Distribution of Raj Kumar Mishra</h4>
+        <table>
+            <tr><th>S.No</th><th>Khasra No.</th><th>Unique Code</th><th>Property Type</th><th>Actual Place</th><th>Total Area (Hectare)</th></tr>
+            <tr><td>1</td><td>835</td><td>2017530835000012</td><td>Individual</td><td>Not Known</td><td>0.2590</td></tr>
+            <tr><td>2</td><td>896</td><td>2017530896000012</td><td>Individual</td><td>Not Known</td><td>0.2460</td></tr>
+            <tr><td>3</td><td>1159</td><td>2017531159000012</td><td>Individual</td><td>Not Known</td><td>0.1530</td></tr>
+        </table>
         `;
             }
 
@@ -279,6 +343,14 @@
         <h2>Shiv Kumar Mishra</h2>
         <p>Family head of Akash Mishra</p>
         <p>Khasra No.: 859, 894, 1160</p>
+
+        <h4>Individual Land Distribution of Shiv Kumar Mishra</h4>
+        <table>
+            <tr><th>S.No</th><th>Khasra No.</th><th>Unique Code</th><th>Property Type</th><th>Actual Place</th><<th>Total Area (Hectare)</th></tr>
+            <tr><td>1</td><td>859</td><td>2017530859000012</td><td>Individual</td><td>Not Known</td><td>0.2590</td></tr>
+            <tr><td>2</td><td>894</td><td>2017530894000012</td><td>Individual</td><td>Not Known</td><td>0.2300</td></tr>
+            <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
+        </table>
         `;
             }
 
