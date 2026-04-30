@@ -32,7 +32,7 @@
             font-weight: bold;
         }
 
-        .map-container {
+        /* .map-container {
             display: flex;
             gap: 20px;
             justify-content: center;
@@ -49,7 +49,7 @@
             height: auto;
             border: 2px solid #444;
             border-radius: 8px;
-        }
+        } */
 
         #details {
             margin-top: 30px;
@@ -79,6 +79,45 @@
 
         th {
             background-color: #ddd;
+        }
+
+        /* Popup Common */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            margin: 8% auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+
+        .map-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .map-container img {
+            width: 300px;
+            border-radius: 8px;
+            border: 2px solid #444;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -124,6 +163,86 @@
 
     <!-- Land Details Section -->
     <div id="details"></div>
+    <!-- Password Popup -->
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <h3>Enter Password</h3>
+            <input type="password" id="mapPassword" placeholder="Enter password">
+            <br>
+            <button onclick="checkPassword()">Submit</button>
+            <button onclick="closePassword()">Cancel</button>
+            <p id="errorMsg" style="color:red;"></p>
+        </div>
+    </div>
+
+    <!-- Map Popup -->
+    <div id="mapPopup" class="popup">
+        <div class="popup-content">
+            <h3>Chakbandi Map Comparison</h3>
+
+            <div class="map-container">
+                <div>
+                    <h4>1962</h4>
+                    <img src="images/map1962.jpg">
+                </div>
+                <div>
+                    <h4>2018</h4>
+                    <img src="images/map2018.jpg">
+                </div>
+            </div>
+
+            <button onclick="closeMap()">Close</button>
+        </div>
+    </div>
+    <script>
+
+        const correctPassword = "Mishra#@1947"; // 🔑 Change password here
+
+        // function openPopup() {
+        //     document.getElementById("passwordPopup").style.display = "block";
+        // }
+
+        // function closePopup() {
+        //     document.getElementById("passwordPopup").style.display = "none";
+        // }
+
+        function openPassword() {
+            document.getElementById("passwordPopup").style.display = "block";
+        }
+
+        function closePassword() {
+            document.getElementById("passwordPopup").style.display = "none";
+        }
+
+        function checkPassword() {
+            let val = document.getElementById("mapPassword").value;
+
+            if (val === correctPassword) {
+                closePassword();
+                openMap();
+            } else {
+                document.getElementById("errorMsg").innerText = "Wrong Password!";
+            }
+        }
+
+
+        function showMaps() {
+            let mapSection = `
+    <h3>Chakbandi Map Comparison</h3>
+    <div class="map-container">
+        <div class="map-box">
+            <h4>1962 Chakbandi</h4>
+            <img src="images/map1962.jpg">
+        </div>
+        <div class="map-box">
+            <h4>2018 Chakbandi</h4>
+            <img src="images/map2018.jpg">
+        </div>
+    </div>
+    `;
+            document.getElementById("mapArea").innerHTML = mapSection;
+        }
+    </script>
     <script>
 
         const egazetteRecords = [
@@ -250,23 +369,7 @@
             <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
         </table>
 
-        <h3>Chakbandi Map Comparison</h3>
-
-        <div class="map-container">
-            <div class="map-box">
-                <h4>1962 Chakbandi</h4>
-                <a href="images/map1962.jpg" download="Chakbandi_1962_Map">
-                <img src="images/map1962.jpg" alt="1962 Chakbandi Map">
-                </a>
-            </div>
-
-            <div class="map-box">
-                <h4>2018 Chakbandi</h4>
-                <a href="images/map2018.jpg" download="Chakbandi_2018_Map">
-                <img src="images/map2018.jpg" alt="2018 Chakbandi Map">
-                </a>
-            </div>
-        </div>
+          <button onclick="openPassword()">View Chakbandi Maps</button>
         
         <div style="margin-top:20px; padding:15px; background:#eef6ff; border-left:5px solid #2196f3;">
     <p>
