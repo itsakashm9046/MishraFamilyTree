@@ -250,8 +250,33 @@
             <tr><td>3</td><td>1160</td><td>2017531160000012</td><td>Individual</td><td>Not Known</td><td>0.1680</td></tr>
         </table>
 
-        <h3>Chakbandi Map Comparison</h3>
+       <h3 onclick="openMapPopup()" style="cursor:pointer; color:blue;">
+    Chakbandi Map Comparison (Click to View)
+</h3>
 
+<div class="map-container" id="mapSection" style="display:none;">
+<div id="mapPopup" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+">
+
+    <div style="
+        background:white;
+        padding:20px;
+        border-radius:8px;
+        text-align:center;
+    ">
+        <h3>Enter Password</h3>
+        <input type="password" id="mapPassword" placeholder="Enter password"><br><br>
+        <button onclick="checkMapPassword()">Submit</button>
+    </div>
+
+</div>
         <div class="map-container">
             <div class="map-box">
                 <h4>1962 Chakbandi</h4>
@@ -360,6 +385,27 @@
 
             detailsBox.style.display = "block";
         }
+    </script>
+
+    <script>
+
+
+        const mapPassword = "Mishra#@1947"; // Change password here
+
+function openMapPopup() {
+    document.getElementById("mapPopup").style.display = "flex";
+}
+
+function checkMapPassword() {
+    let entered = document.getElementById("mapPassword").value;
+
+    if (entered === mapPassword) {
+        document.getElementById("mapSection").style.display = "flex";
+        document.getElementById("mapPopup").style.display = "none";
+    } else {
+        alert("Incorrect Password!");
+    }
+}
     </script>
 
 
