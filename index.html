@@ -1,118 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mishra Family:Home Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mishra Family:Home Page</title>
 
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        flex-direction: column;
+        padding-top: 120px;
+      }
 
-.login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    width: 300px;
-    text-align: center;
-}
+      .login-box {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+      }
 
-.login-box h2 {
-    margin-bottom: 20px;
-}
+      .login-box h2 {
+        margin-bottom: 20px;
+      }
 
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
 
-.input-group label {
-    font-size: 14px;
-}
+      .input-group label {
+        font-size: 14px;
+      }
 
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
 
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #667eea;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #667eea;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-button:hover {
-    background: #5a67d8;
-}
+      button:hover {
+        background: #5a67d8;
+      }
 
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-</style>
-</head>
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+      }
 
-<body>
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        z-index: 1000;
+      }
 
-<div class="login-box">
-    <h2>Mishra Family Login</h2>
-    
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" id="username">
+      header h1 {
+        margin: 0;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .gallery {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        padding: 20px;
+        width: 90%;
+      }
+
+      .gallery img {
+        border-radius: 10px;
+        min-width: 300px;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Login Button */
+      .login-btn {
+        background: #ff7a18;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .login-btn:hover {
+        background: #e66a00;
+      }
+
+      /* Modal Background */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Close Button */
+      .close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      .marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .marquee-track {
+        display: flex;
+        width: calc(800px * 8); /* adjust based on number of images */
+        animation: scroll 20s linear infinite;
+      }
+
+      .marquee img {
+        width: 100%;
+        max-width: 800px;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      /* Animation */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Mishra Family</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Gallery</a>
+        <a href="#">Members</a>
+        <a href="#">Contact</a>
+        <a class="login-btn" onclick="openLogin()">Login</a>
+      </nav>
+    </header>
+    <div class="marquee">
+      <div class="marquee-track">
+        <img src="https://picsum.photos/800/300?1" />
+        <img src="https://picsum.photos/800/300?2" />
+        <img src="https://picsum.photos/800/300?3" />
+        <img src="https://picsum.photos/800/300?4" />
+
+        <!-- duplicate images for smooth loop -->
+        <img src="https://picsum.photos/800/300?1" />
+        <img src="https://picsum.photos/800/300?2" />
+        <img src="https://picsum.photos/800/300?3" />
+        <img src="https://picsum.photos/800/300?4" />
+      </div>
     </div>
 
-    <div class="input-group">
-        <label>Password</label>
-        <input type="password" id="password">
+    <div class="modal" id="loginModal">
+      <div class="login-box">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Mishra Family Login</h2>
+
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="username" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" />
+        </div>
+
+        <button onclick="login()">Login</button>
+        <div class="error" id="error"></div>
+      </div>
     </div>
 
-    <button onclick="login()">Login</button>
+    <script>
+      const _0xily = "cmFtYXdhZGg=";
+      const _0xabc = "cmFtYXdhZGhAMTk5Mw==";
 
-    <div class="error" id="error"></div>
-</div>
+      function decode(str) {
+        return atob(str);
+      }
 
-<script>
-const _0xily = "cmFtYXdhZGg=";
-const _0xabc = "cmFtYXdhZGhAMTk5Mw==";
+      function login() {
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
 
-function decode(str) {
-    return atob(str);
-}
+        const correctUser = decode(_0xily);
+        const correctPass = decode(_0xabc);
 
-function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
-    
-    const correctUser = decode(_0xily);
-    const correctPass = decode(_0xabc);
+        if (user === correctUser && pass === correctPass) {
+          localStorage.setItem("isLoggedIn", "true"); // ✅ save login state
+          alert("Welcome to view Mishra Family");
+          window.location.href = "mishrafamily.html";
+          
+        } else {
+          document.getElementById("error").innerText =
+            "Authentication failed. Please re-enter details.";
+        }
+      }
 
-    if(user === correctUser && pass === correctPass) {
-         window.location.href = "mishrafamily.html";
-         alert("Welcome to view Mishra Family");
-    } else {
-        document.getElementById("error").innerText = "Authentication failed. Please re-enter details.";
-    }
-}
-</script>
+      function openLogin() {
+        document.getElementById("loginModal").style.display = "flex";
+      }
 
-</body>
+      function closeLogin() {
+        document.getElementById("loginModal").style.display = "none";
+      }
+
+      // Optional: close when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("loginModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>
