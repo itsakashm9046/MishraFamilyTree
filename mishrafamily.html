@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Mishra Family Land Records</title>
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background-color: #f5f5f5;
-        }
+      body {
+        font-family: Arial;
+        text-align: center;
+        background-color: #f5f5f5;
+      }
 
-        .tree {
-            margin-top: 20px;
-        }
+      .tree {
+        margin-top: 20px;
+      }
 
-        .member {
-            display: inline-block;
-            margin: 15px;
-            cursor: pointer;
-        }
+      .member {
+        display: inline-block;
+        margin: 15px;
+        cursor: pointer;
+      }
 
-        .member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid #333;
-        }
+      .member img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid #333;
+      }
 
-        .member p {
-            margin-top: 5px;
-            font-weight: bold;
-        }
+      .member p {
+        margin-top: 5px;
+        font-weight: bold;
+      }
 
-        /* .map-container {
+      /* .map-container {
             display: flex;
             gap: 20px;
             justify-content: center;
@@ -51,197 +50,220 @@
             border-radius: 8px;
         } */
 
-        #details {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border: 1px solid #ccc;
-            display: none;
-            overflow-x: auto;
-        }
+      #details {
+        margin-top: 30px;
+        padding: 20px;
+        background: white;
+        border: 1px solid #ccc;
+        display: none;
+        overflow-x: auto;
+      }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
 
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
 
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-        }
+      th,
+      td {
+        padding: 8px;
+        text-align: center;
+      }
 
-        th {
-            background-color: #ddd;
-        }
+      th {
+        background-color: #ddd;
+      }
 
-        /* Popup Common */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
+      /* Popup Common */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+      }
 
-        .popup-content {
-            background: white;
-            padding: 20px;
-            margin: 8% auto;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
-        }
+      .popup-content {
+        background: white;
+        padding: 20px;
+        margin: 8% auto;
+        width: 80%;
+        max-width: 800px;
+        border-radius: 10px;
+      }
 
-        .map-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+      .map-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-        .map-container img {
-            width: 300px;
-            border-radius: 8px;
-            border: 2px solid #444;
-        }
+      .map-container img {
+        width: 300px;
+        border-radius: 8px;
+        border: 2px solid #444;
+      }
 
-        button {
-            padding: 8px 15px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
+      button {
+        padding: 8px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
     </style>
-</head>
 
-<body>
+<!-- <script>
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+  
+    if (!isLoggedIn || isLoggedIn !== "true") {
+      window.location.replace("index.html"); // better than href
+    }
+  </script> -->
 
+   <script>
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (!isLoggedIn || isLoggedIn !== "true") {
+          alert("Access denied! Please login first.");
+          window.location.href = "index.html";
+        }
+      </script>
+  </head>
+
+  <body>
+    
+      <button onclick="logout()">Logout</button>
+
+      <script>
+        function logout() {
+          localStorage.removeItem("isLoggedIn");
+          window.location.href = "index.html";
+        }
+      </script> 
     <h1>Mishra Family Land Records</h1>
 
     <div class="tree">
+      <!-- Head -->
+      <div class="member" onclick="showDetails('Ram Awadh Mishra')">
+        <img src="images/ram_awadh.jpeg" alt="Ram Awadh Mishra" />
+        <p>Head of The Family</p>
+        <p>Lt. Ram Awadh Mishra</p>
+        <p>Father of below shown Family Members</p>
+      </div>
+      <br />
 
-        <!-- Head -->
-        <div class="member" onclick="showDetails('Ram Awadh Mishra')">
-            <img src="images/ram_awadh.jpeg" alt="Ram Awadh Mishra">
-            <p>Head of The Family</p>
-            <p>Lt. Ram Awadh Mishra</p>
-            <p>Father of below shown Family Members</p>
-        </div>
+      <!-- Sons -->
+      <div class="member" onclick="showDetails('Vijay Kumar Mishra')">
+        <img src="images/vijay_kumar.jpg" alt="Vijay Kumar Mishra" />
+        <p>Vijay Kumar Mishra</p>
+      </div>
 
-        <br>
+      <div class="member" onclick="showDetails('Shrawan Kumar Mishra')">
+        <img src="images/shrawan_kumar.jpg" alt="Shrawan Kumar Mishra" />
+        <p>Lt. Shrawan Kumar Mishra</p>
+      </div>
 
-        <!-- Sons -->
-        <div class="member" onclick="showDetails('Vijay Kumar Mishra')">
-            <img src="images/vijay_kumar.jpg" alt="Vijay Kumar Mishra">
-            <p>Vijay Kumar Mishra</p>
-        </div>
+      <div class="member" onclick="showDetails('Raj Kumar Mishra')">
+        <img src="images/raj_kumar.jpeg" alt="Raj Kumar Mishra" />
+        <p>Raj Kumar Mishra</p>
+      </div>
 
-        <div class="member" onclick="showDetails('Shrawan Kumar Mishra')">
-            <img src="images/shrawan_kumar.jpg" alt="Shrawan Kumar Mishra">
-            <p>Lt. Shrawan Kumar Mishra</p>
-        </div>
-
-        <div class="member" onclick="showDetails('Raj Kumar Mishra')">
-            <img src="images/raj_kumar.jpeg" alt="Raj Kumar Mishra">
-            <p>Raj Kumar Mishra</p>
-        </div>
-
-        <div class="member" onclick="showDetails('Shiv Kumar Mishra')">
-            <img src="images/shiv_kumar.jpeg" alt="Shiv Kumar Mishra">
-            <p>Shiv Kumar Mishra</p>
-        </div>
-
+      <div class="member" onclick="showDetails('Shiv Kumar Mishra')">
+        <img src="images/shiv_kumar.jpeg" alt="Shiv Kumar Mishra" />
+        <p>Shiv Kumar Mishra</p>
+      </div>
     </div>
 
     <!-- Land Details Section -->
     <div id="details"></div>
     <!-- Password Popup -->
     <div id="passwordPopup" class="popup">
-        <div class="popup-content">
-            <h3>Enter Password</h3>
-            <input type="password" id="mapPassword" placeholder="Enter your password to access the file...">
-            <br>
-            <button onclick="checkPassword()">Submit</button>
-            <button onclick="closePassword()">Cancel</button>
-            <p id="errorMsg" style="color:red;"></p>
-        </div>
+      <div class="popup-content">
+        <h3>Enter Password</h3>
+        <input
+          type="password"
+          id="mapPassword"
+          placeholder="Enter your password to access the file..."
+        />
+        <br />
+        <button onclick="checkPassword()">Submit</button>
+        <button onclick="closePassword()">Cancel</button>
+        <p id="errorMsg" style="color: red"></p>
+      </div>
     </div>
 
     <!-- Map Popup -->
     <div id="mapPopup" class="popup">
-        <div class="popup-content">
-            <h3>Chakbandi Map Comparison</h3>
+      <div class="popup-content">
+        <h3>Chakbandi Map Comparison</h3>
 
-            <div class="map-container">
-                <div>
-                    <h4>1962</h4>
-                    <img src="images/map1962.jpg">
-                </div>
-                <div>
-                    <h4>2018</h4>
-                    <img src="images/map2018.jpg">
-                </div>
-            </div>
-
-            <button onclick="closeMap()">Close</button>
+        <div class="map-container">
+          <div>
+            <h4>1962</h4>
+            <img src="images/map1962.jpg" />
+          </div>
+          <div>
+            <h4>2018</h4>
+            <img src="images/map2018.jpg" />
+          </div>
         </div>
+
+        <button onclick="closeMap()">Close</button>
+      </div>
     </div>
     <script>
+      const encodedPassword = "TWlzaHJhI0AxOTQ3";
 
-        const encodedPassword = "TWlzaHJhI0AxOTQ3";
+      function getPassword() {
+        return atob(encodedPassword); // decode at runtime
+      }
 
-        function getPassword() {
-            return atob(encodedPassword); // decode at runtime
+      // function openPopup() {
+      //     document.getElementById("passwordPopup").style.display = "block";
+      // }
+
+      // function closePopup() {
+      //     document.getElementById("passwordPopup").style.display = "none";
+      // }
+
+      window.openPassword = function () {
+        document.getElementById("passwordPopup").style.display = "block";
+      };
+
+      window.closePassword = function () {
+        document.getElementById("passwordPopup").style.display = "none";
+      };
+
+      function checkPassword() {
+        let val = document.getElementById("mapPassword").value;
+
+        if (val === getPassword()) {
+          closePassword();
+          openMap();
+        } else {
+          document.getElementById("errorMsg").innerText =
+            "Authentication failed. Please re-enter details.";
         }
+      }
 
-        // function openPopup() {
-        //     document.getElementById("passwordPopup").style.display = "block";
-        // }
+      /* Map Popup */
+      window.openMap = function () {
+        document.getElementById("mapPopup").style.display = "block";
+      };
 
-        // function closePopup() {
-        //     document.getElementById("passwordPopup").style.display = "none";
-        // }
+      window.closeMap = function () {
+        document.getElementById("mapPopup").style.display = "none";
+      };
 
-        window.openPassword = function () {
-            document.getElementById("passwordPopup").style.display = "block";
-        };
-
-        window.closePassword = function () {
-            document.getElementById("passwordPopup").style.display = "none";
-        };
-        
-         function checkPassword() {
-            let val = document.getElementById("mapPassword").value;
-
-            if (val === getPassword()) {
-                closePassword();
-                openMap();
-            } else {
-                document.getElementById("errorMsg").innerText =
-                    "Authentication failed. Please re-enter details.";
-            }
-        }
-
-        /* Map Popup */
-        window.openMap = function () {
-    document.getElementById("mapPopup").style.display = "block";
-};
-
-window.closeMap = function () {
-    document.getElementById("mapPopup").style.display = "none";
-};
-
-
-        function showMaps() {
-            let mapSection = `
+      function showMaps() {
+        let mapSection = `
     <h3>Chakbandi Map Comparison</h3>
     <div class="map-container">
         <div class="map-box">
@@ -258,34 +280,33 @@ window.closeMap = function () {
         </div>
     </div>
     `;
-            document.getElementById("mapArea").innerHTML = mapSection;
-        }
+        document.getElementById("mapArea").innerHTML = mapSection;
+      }
     </script>
     <script>
+      const egazetteRecords = [
+        {
+          department: "Ministry of Road Transport and Highways",
+          gazette_no: "4016",
+          code: "CG-DL-E-13092025-266141",
+          release_date: "2025-09-11",
+          publish_date: "2025-09-23",
+          file: "images/gazette1.pdf",
+        },
+        {
+          department: "Ministry of Road Transport and Highways",
+          gazette_no: "1828",
+          code: "CG-DL-E-15042026-271829",
+          release_date: "2026-04-13",
+          publish_date: "2026-04-15",
+          file: "images/gazette2.pdf",
+        },
+      ];
 
-        const egazetteRecords = [
-            {
-                department: "Ministry of Road Transport and Highways",
-                gazette_no: "4016",
-                code: "CG-DL-E-13092025-266141",
-                release_date: "2025-09-11",
-                publish_date: "2025-09-23",
-                file: "images/gazette1.pdf"
-            },
-            {
-                department: "Ministry of Road Transport and Highways",
-                gazette_no: "1828",
-                code: "CG-DL-E-15042026-271829",
-                release_date: "2026-04-13",
-                publish_date: "2026-04-15",
-                file: "images/gazette2.pdf"
-            }
-        ];
+      function showEGazette() {
+        let detailsBox = document.getElementById("details");
 
-        function showEGazette() {
-            let detailsBox = document.getElementById("details");
-
-            let html = `<h2>e-Gazette Records</h2>
+        let html = `<h2>e-Gazette Records</h2>
     <table>
         <tr>
             <th>S.No</th>
@@ -297,8 +318,8 @@ window.closeMap = function () {
             <th>Download</th>
         </tr>`;
 
-            egazetteRecords.forEach((rec, index) => {
-                html += `
+        egazetteRecords.forEach((rec, index) => {
+          html += `
         <tr>
             <td>${index + 1}</td>
             <td>${rec.department}</td>
@@ -308,22 +329,20 @@ window.closeMap = function () {
             <td>${rec.publish_date}</td>
             <td><a href="${rec.file}" target="_blank">Download</a></td>
         </tr>`;
-            });
+        });
 
-            html += `</table>`;
+        html += `</table>`;
 
-            detailsBox.innerHTML = html;
-            detailsBox.style.display = "block";
-        }
-
-
+        detailsBox.innerHTML = html;
+        detailsBox.style.display = "block";
+      }
     </script>
     <script>
-        function showDetails(name) {
-            let detailsBox = document.getElementById("details");
+      function showDetails(name) {
+        let detailsBox = document.getElementById("details");
 
-            if (name === "Ram Awadh Mishra") {
-                detailsBox.innerHTML = `
+        if (name === "Ram Awadh Mishra") {
+          detailsBox.innerHTML = `
         <h2>Land Details - Ram Awadh Mishra</h2>
 
         <h3>Family Land</h3>
@@ -408,10 +427,8 @@ window.closeMap = function () {
         </footer>
 </div>  
         `;
-            }
-
-            else if (name === "Vijay Kumar Mishra") {
-                detailsBox.innerHTML = `
+        } else if (name === "Vijay Kumar Mishra") {
+          detailsBox.innerHTML = `
         <h2>Vijay Kumar Mishra</h2>
         <p>Family head of Anil Kumar Mishra, Varun Kumar Mishra & Vivek Kumar Mishra</p>
         <p>Khasra No.: 851, 892, 1157</p>
@@ -427,10 +444,8 @@ window.closeMap = function () {
             © 2026 Mishra Family. All Rights Reserved.
         </footer>
         `;
-            }
-
-            else if (name === "Shrawan Kumar Mishra") {
-                detailsBox.innerHTML = `
+        } else if (name === "Shrawan Kumar Mishra") {
+          detailsBox.innerHTML = `
         <h2>Lt. Shrawan Kumar Mishra</h2>
         <p>Family head of Ashok Kumar Mishra & Santosh Kumar Mishra</p>
         <p>Khasra No. 860, 864, 895, and 1158 are now registered in the names of his sons, Ashok Kumar Mishra and Santosh Kumar Mishra.</p>
@@ -447,10 +462,8 @@ window.closeMap = function () {
             © 2026 Mishra Family. All Rights Reserved.
         </footer>
         `;
-            }
-
-            else if (name === "Raj Kumar Mishra") {
-                detailsBox.innerHTML = `
+        } else if (name === "Raj Kumar Mishra") {
+          detailsBox.innerHTML = `
         <h2>Raj Kumar Mishra</h2>
         <p>Family head of Anand Mishra & Ashish Mishra</p>
         <p>Khasra No.: 835, 896, 1159</p>
@@ -466,10 +479,8 @@ window.closeMap = function () {
             © 2026 Mishra Family. All Rights Reserved.
         </footer>
         `;
-            }
-
-            else if (name === "Shiv Kumar Mishra") {
-                detailsBox.innerHTML = `
+        } else if (name === "Shiv Kumar Mishra") {
+          detailsBox.innerHTML = `
         <h2>Shiv Kumar Mishra</h2>
         <p>Family head of Akash Mishra</p>
         <p>Khasra No.: 859, 894, 1160</p>
@@ -485,18 +496,15 @@ window.closeMap = function () {
             © 2026 Mishra Family. All Rights Reserved.
         </footer>
         `;
-            }
-
-            else {
-                detailsBox.innerHTML = "<h2>" + name + "</h2><p>No data available</p>";
-            }
-
-            detailsBox.style.display = "block";
+        } else {
+          detailsBox.innerHTML =
+            "<h2>" + name + "</h2><p>No data available</p>";
         }
+
+        detailsBox.style.display = "block";
+      }
     </script>
 
-
-
-</body>
-
+    
+  </body>
 </html>
